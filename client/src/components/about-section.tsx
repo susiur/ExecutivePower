@@ -4,30 +4,29 @@ import { Trophy, Globe, Users, Download } from "lucide-react";
 const highlights = [
   {
     icon: Trophy,
-    title: "Proven Results",
+    title: "Resultados Comprobados",
     description:
-      "Consistently delivered exponential growth across diverse industries and market conditions.",
+      "He escalado compañías en América Latina, multiplicando ingresos y liderando expansiones internacionales en tiempo récord.",
   },
   {
     icon: Globe,
-    title: "Global Perspective",
+    title: "Visión Global de Negocios",
     description:
-      "Extensive experience in emerging markets with deep understanding of local dynamics and global trends.",
+      "Experiencia como Country Manager en Colombia, México y Venezuela. Participante de programas internacionales de innovación y venture capital.",
   },
   {
     icon: Users,
-    title: "Team Builder",
+    title: "Liderazgo Estratégico",
     description:
-      "Expert in building high-performing teams and establishing scalable operational frameworks.",
+      "CEO Fraccional y consultor senior con experiencia en transformación digital, formación de equipos y aceleración de crecimiento.",
   },
 ];
 
 export default function AboutSection() {
   const handleDownloadCV = () => {
-    // Create a simple CV download
     const link = document.createElement("a");
     link.href = "/api/download-cv";
-    link.download = "Executive_CV.pdf";
+    link.download = "Mauricio_Uribe_CV.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -40,12 +39,10 @@ export default function AboutSection() {
           <div className="space-y-8">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-exec-dark mb-6">
-                About Me
+                Sobre Mí
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Seasoned C-Level executive with over 20 years of transformational
-                leadership experience across emerging markets and digital
-                transformation initiatives.
+                Soy Mauricio Uribe, ejecutivo C-Level con más de 20 años de experiencia liderando crecimiento empresarial, transformación digital y expansión internacional en América Latina. He construido operaciones desde cero, escalado startups y liderado equipos multinacionales. Hoy apoyo a organizaciones como CEO Fraccional y Consultor Senior para acelerar su crecimiento y profesionalizar su estructura. MBA, Especialista en Finanzas, y miembro activo de juntas directivas con visión global de negocios.
               </p>
             </div>
 
@@ -72,15 +69,15 @@ export default function AboutSection() {
                 className="bg-gradient-to-r from-exec-blue to-tech-purple text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold text-lg px-8 py-4 h-auto"
               >
                 <Download className="mr-3 h-5 w-5" />
-                Download Executive CV
+                Descargar CV
               </Button>
             </div>
           </div>
 
           <div className="lg:text-right">
             <img
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=1000"
-              alt="Professional executive portrait"
+              src="/assets/Mauricio_Uribe.webp"
+              alt="Retrato ejecutivo de Mauricio Uribe"
               className="rounded-2xl shadow-2xl w-full max-w-md mx-auto lg:ml-auto"
             />
           </div>

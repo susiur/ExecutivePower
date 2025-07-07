@@ -8,31 +8,29 @@ const successStories = [
     id: 1,
     company: "Ipsos Venezuela",
     period: "2003 - 2006",
-    title: "Zero to $3M Revenue Growth",
+    title: "Crecimiento de $0 a $3M en ingresos",
     description:
-      "Led complete market entry strategy and operational build-out for Venezuela market. Established local partnerships, built high-performing team, and implemented scalable processes that generated sustainable revenue growth over 3 years.",
-    startValue: "$0",
-    endValue: "$3M",
-    startLabel: "Starting Revenue",
-    endLabel: "Final Revenue",
+      "Lideré la estrategia completa de entrada al mercado y la construcción operativa para Venezuela. Establecí alianzas locales, formé un equipo de alto rendimiento e implementé procesos escalables que generaron un crecimiento sostenible en 3 años.",
+    startValue: "$USD 0",
+    endValue: "$USD 3M",
+    startLabel: "Ingresos iniciales",
+    endLabel: "Ingresos finales",
     icon: TrendingUp,
-    image:
-      "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+    image: "assets/Ipsos.webp",
   },
   {
     id: 2,
     company: "Virtual Impact",
     period: "2020 - 2022",
-    title: "9x Growth Achievement",
+    title: "Multiplicación de valor por 9x",
     description:
-      "Transformed digital-first organization through strategic pivots, technology integration, and market expansion. Implemented data-driven decision making and agile methodologies that multiplied company valuation nine-fold in just two years.",
+      "Transformé una organización digital mediante pivotes estratégicos, integración tecnológica y expansión de mercado. Implementé toma de decisiones basada en datos y metodologías ágiles que multiplicaron el valor de la empresa por 9 en solo dos años.",
     startValue: "1x",
     endValue: "9x",
-    startLabel: "Baseline Growth",
-    endLabel: "Final Growth",
+    startLabel: "Valor inicial",
+    endLabel: "Valor final",
     icon: Rocket,
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+    image: "/assets/Virtual.webp",
   },
 ];
 
@@ -62,15 +60,14 @@ export default function ExperienceCarousel() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-exec-dark mb-6">
-            Proven Track Record
+            Experiencia Comprobada
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Delivering exceptional results across diverse industries with
-            strategic leadership and operational excellence.
+            Resultados excepcionales en distintas industrias gracias a liderazgo estratégico y excelencia operativa.
           </p>
         </div>
 
-        {/* Carousel Container */}
+        {/* Carrusel */}
         <div className="relative max-w-5xl mx-auto">
           <div className="overflow-hidden rounded-2xl shadow-2xl">
             <div
@@ -122,7 +119,7 @@ export default function ExperienceCarousel() {
                         <div className="flex items-center justify-center">
                           <img
                             src={story.image}
-                            alt={`${story.company} success story`}
+                            alt={`Caso de éxito - ${story.company}`}
                             className="rounded-xl shadow-lg w-full h-auto"
                           />
                         </div>
@@ -134,7 +131,7 @@ export default function ExperienceCarousel() {
             </div>
           </div>
 
-          {/* Carousel Navigation */}
+          {/* Botones de navegación */}
           <Button
             variant="outline"
             size="icon"
@@ -152,7 +149,7 @@ export default function ExperienceCarousel() {
             <ChevronRight className="h-6 w-6" />
           </Button>
 
-          {/* Carousel Dots */}
+          {/* Puntos indicadores */}
           <div className="flex justify-center mt-8 space-x-3">
             {successStories.map((_, index) => (
               <button

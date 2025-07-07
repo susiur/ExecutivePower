@@ -5,49 +5,49 @@ import { Lightbulb, UserCheck, Handshake, Check } from "lucide-react";
 
 const services = [
   {
-    id: "consulting",
-    name: "Strategic Consulting",
-    description: "Market entry and growth strategy development",
-    price: "$2,500",
-    period: "per day",
+    id: "consultoria",
+    name: "Consultoría Estratégica",
+    description: "Ingreso a mercados, expansión y crecimiento sostenido",
+    price: "$200–250/hora",
+    period: "Empresas medianas",
     icon: Lightbulb,
     features: [
-      "Market analysis & strategy",
-      "Competitive positioning",
-      "Growth roadmap",
+      "Análisis de mercado y planeación",
+      "Posicionamiento competitivo",
+      "Ruta de crecimiento y expansión",
     ],
-    buttonText: "Get Started",
+    buttonText: "Solicitar Sesión",
     popular: false,
   },
   {
-    id: "interim",
-    name: "Interim Executive",
-    description: "Full-time C-level leadership engagement",
-    price: "$15,000",
-    period: "per month",
+    id: "ceo-fraccional",
+    name: "CEO Fraccional",
+    description: "Liderazgo ejecutivo a nivel C sin el costo fijo",
+    price: "$3,000–12,000/mes",
+    period: "Retainers mensuales",
     icon: UserCheck,
     features: [
-      "Full C-level authority",
-      "Team leadership & development",
-      "Operational transformation",
-      "Performance optimization",
+      "Autoridad C-Level completa",
+      "Liderazgo de equipos y procesos",
+      "Transformación operativa",
+      "Optimización de resultados",
     ],
-    buttonText: "Schedule Call",
+    buttonText: "Agendar Llamada",
     popular: true,
   },
   {
-    id: "advisory",
-    name: "Board Advisory",
-    description: "Strategic guidance and governance oversight",
-    price: "$5,000",
-    period: "per month",
+    id: "juntas",
+    name: "Asesor de Junta Directiva",
+    description: "Acompañamiento estratégico y gobernanza corporativa",
+    price: "$5,000/mes",
+    period: "Empresas en expansión",
     icon: Handshake,
     features: [
-      "Monthly board meetings",
-      "Strategic oversight",
-      "Executive mentoring",
+      "Reuniones periódicas de junta",
+      "Supervisión estratégica",
+      "Mentoría a directivos",
     ],
-    buttonText: "Learn More",
+    buttonText: "Más Información",
     popular: false,
   },
 ];
@@ -65,11 +65,11 @@ export default function RatesSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-exec-dark mb-6">
-            Investment in Excellence
+            Inversión en Liderazgo
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Transparent, value-driven pricing structure designed to deliver
-            exceptional ROI for your organization.
+            Estructura de servicios flexible y orientada a resultados, adaptada
+            al tamaño y etapa de tu organización.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function RatesSection() {
             >
               {service.popular && (
                 <Badge className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-tech-purple text-white">
-                  Most Popular
+                  Más Popular
                 </Badge>
               )}
 
@@ -102,19 +102,22 @@ export default function RatesSection() {
               </CardHeader>
 
               <CardContent className="space-y-8">
-                <div className="text-center">
+                {/* Precio oculto, pero disponible en el JSON si se requiere */}
+                {/* <div className="text-center">
                   <div className="text-4xl font-bold text-exec-dark mb-2">
                     {service.price}
                   </div>
                   <div className="text-gray-600">{service.period}</div>
-                </div>
+                </div> */}
 
                 <ul className="space-y-3">
                   {service.features.map((feature, index) => (
                     <li key={index} className="flex items-center space-x-3">
                       <Check
                         className={`h-5 w-5 ${
-                          service.popular ? "text-tech-purple" : "text-exec-blue"
+                          service.popular
+                            ? "text-tech-purple"
+                            : "text-exec-blue"
                         }`}
                       />
                       <span className="text-gray-600">{feature}</span>

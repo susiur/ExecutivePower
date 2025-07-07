@@ -19,22 +19,21 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080')",
+          backgroundImage: "url('/assets/home.webp')",
         }}
       ></div>
 
       {/* Content */}
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          Transform Your Vision Into{" "}
+        <h1 className="text4xl md:text-7xl font-bold mb-6 leading-tight">
+          Escalar es Solo el Comienzo. Crecer de {" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
-            Extraordinary Results
+            Forma Inteligente es el Desafío
           </span>
         </h1>
         <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90">
-          Proven C-Level expertise that delivers exponential growth. From zero
-          to millions, from potential to performance.
+          Ofrecemos dirección ejecutiva fractional para escalar su negocio de forma rentable, 
+          profesionalizada y sin asumir los costos ni los riesgos de un C-Level full-time
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
@@ -42,15 +41,15 @@ export default function HeroSection() {
             size="lg"
             className="bg-white text-exec-blue hover:bg-gray-100 font-semibold text-lg px-8 py-4 h-auto transform hover:scale-105 transition-all duration-300"
           >
-            View Success Stories
+            Ver Historias de Éxito
           </Button>
           <Button
             onClick={() => scrollToSection("contact")}
             variant="outline"
             size="lg"
-            className="border-2 border-white text-white hover:bg-white hover:text-exec-blue font-semibold text-lg px-8 py-4 h-auto transition-all duration-300"
+            className="border-2 border-white text-exec-blue hover:bg-white hover:text-exec-blue font-semibold text-lg px-8 py-4 h-auto transition-all duration-300"
           >
-            Start Your Transformation
+            Empieza tu transformación
           </Button>
         </div>
       </div>
