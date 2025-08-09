@@ -1,59 +1,58 @@
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, Linkedin, MessageCircle } from "lucide-react";
+import { Mail, Phone, MessageCircle, Globe } from "lucide-react";
 
 export default function ContactSection() {
+  const { t } = useTranslation();
+  
   const contactInfo = [
     {
+      key: "email",
       icon: Mail,
-      title: "mauriciouribe@outlook.com",
-      subtitle: "Respuesta en menos de 24 horas",
       bgColor: "bg-exec-blue",
     },
     {
+      key: "phone",
       icon: Phone,
-      title: "+57 300 731-2050",
-      subtitle: "Disponible de lunes a viernes",
       bgColor: "bg-tech-purple",
     },
     {
-      icon: Linkedin,
-      title: "linkedin.com/in/uribemauricio",
-      subtitle: "Red profesional",
+      key: "linkedin",
+      icon: Globe,
       bgColor: "bg-exec-blue",
     },
   ];
 
-  const whatsappLink = `https://wa.me/573007312050?text=Hola%20Mauricio,%20estoy%20interesado%20en%20recibir%20acompañamiento%20ejecutivo`;
+  const whatsappLink = `https://wa.me/573007312050?text=${t("contact.whatsappMessage")}`;
 
   return (
     <section id="contact" className="py-20 bg-exec-dark text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            ¿Listo para transformar tu empresa?
+            {t("contact.title")}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Hablemos sobre cómo un liderazgo ejecutivo puede acelerar el
-            crecimiento de tu organización.
+            {t("contact.subtitle")}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Datos de contacto</h3>
+              <h3 className="text-2xl font-bold mb-6">{t("contact.contactData")}</h3>
               <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center space-x-4">
+                {contactInfo.map((info) => (
+                  <div key={info.key} className="flex items-center space-x-4">
                     <div
                       className={`w-12 h-12 ${info.bgColor} rounded-full flex items-center justify-center`}
                     >
                       <info.icon className="text-white h-5 w-5" />
                     </div>
                     <div>
-                      <div className="font-semibold">{info.title}</div>
+                      <div className="font-semibold">{t(`contact.info.${info.key}.title`)}</div>
                       <div className="text-gray-300 text-sm">
-                        {info.subtitle}
+                        {t(`contact.info.${info.key}.subtitle`)}
                       </div>
                     </div>
                   </div>
@@ -74,7 +73,7 @@ export default function ContactSection() {
                 className="w-full bg-gradient-to-r from-exec-blue to-tech-purple text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold text-lg px-8 py-4 h-auto flex items-center justify-center"
               >
                 <MessageCircle className="mr-3 h-5 w-5" />
-                Contactar por WhatsApp
+                {t("contact.whatsappButton")}
               </Button>
             </a>
           </div>

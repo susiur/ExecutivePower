@@ -1,58 +1,33 @@
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Lightbulb, UserCheck, Handshake, Check } from "lucide-react";
 
-const services = [
-  {
-    id: "consultoria",
-    name: "Consultoría Estratégica",
-    description: "Ingreso a mercados, expansión y crecimiento sostenido",
-    price: "$200–250/hora",
-    period: "Empresas medianas",
-    icon: Lightbulb,
-    features: [
-      "Análisis de mercado y planeación",
-      "Posicionamiento competitivo",
-      "Ruta de crecimiento y expansión",
-    ],
-    buttonText: "Solicitar Sesión",
-    popular: false,
-  },
-  {
-    id: "ceo-fraccional",
-    name: "CEO Fraccional",
-    description: "Liderazgo ejecutivo a nivel C sin el costo fijo",
-    price: "$3,000–12,000/mes",
-    period: "Retainers mensuales",
-    icon: UserCheck,
-    features: [
-      "Autoridad C-Level completa",
-      "Liderazgo de equipos y procesos",
-      "Transformación operativa",
-      "Optimización de resultados",
-    ],
-    buttonText: "Agendar Llamada",
-    popular: true,
-  },
-  {
-    id: "juntas",
-    name: "Asesor de Junta Directiva",
-    description: "Acompañamiento estratégico y gobernanza corporativa",
-    price: "$5,000/mes",
-    period: "Empresas en expansión",
-    icon: Handshake,
-    features: [
-      "Reuniones periódicas de junta",
-      "Supervisión estratégica",
-      "Mentoría a directivos",
-    ],
-    buttonText: "Más Información",
-    popular: false,
-  },
-];
-
 export default function RatesSection() {
+  const { t } = useTranslation();
+  
+  const services = [
+    {
+      id: "consultoria",
+      key: "consultoria",
+      icon: Lightbulb,
+      popular: false,
+    },
+    {
+      id: "ceo-fraccional",
+      key: "ceo",
+      icon: UserCheck,
+      popular: true,
+    },
+    {
+      id: "juntas",
+      key: "board",
+      icon: Handshake,
+      popular: false,
+    },
+  ];
+  
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -65,11 +40,10 @@ export default function RatesSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-exec-dark mb-6">
-            Inversión en Liderazgo
+            {t("rates.title")}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Estructura de servicios flexible y orientada a resultados, adaptada
-            al tamaño y etapa de tu organización.
+            {t("rates.subtitle")}
           </p>
         </div>
 
@@ -83,7 +57,7 @@ export default function RatesSection() {
             >
               {service.popular && (
                 <Badge className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-tech-purple text-white">
-                  Más Popular
+                  {t("rates.popular")}
                 </Badge>
               )}
 
@@ -96,9 +70,9 @@ export default function RatesSection() {
                   />
                 </div>
                 <h3 className="text-2xl font-bold text-exec-dark mb-2">
-                  {service.name}
+                  {t(`rates.services.${service.key}.name`)}
                 </h3>
-                <p className="text-gray-600">{service.description}</p>
+                <p className="text-gray-600">{t(`rates.services.${service.key}.description`)}</p>
               </CardHeader>
 
               <CardContent className="space-y-8">
@@ -111,8 +85,8 @@ export default function RatesSection() {
                 </div> */}
 
                 <ul className="space-y-3">
-                  {service.features.map((feature, index) => (
-                    <li key={index} className="flex items-center space-x-3">
+                  {(t(`rates.services.${service.key}.features`, { returnObjects: true }) as string[]).map((feature, index) => (
+                    <li key={`${service.key}-feature-${index}`} className="flex items-center space-x-3">
                       <Check
                         className={`h-5 w-5 ${
                           service.popular
@@ -133,7 +107,7 @@ export default function RatesSection() {
                       : "bg-exec-blue hover:bg-blue-700 text-white"
                   }`}
                 >
-                  {service.buttonText}
+                  {t(`rates.services.${service.key}.buttonText`)}
                 </Button>
               </CardContent>
             </Card>

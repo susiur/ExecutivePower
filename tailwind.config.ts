@@ -51,6 +51,11 @@ export default {
           "4": "var(--chart-4)",
           "5": "var(--chart-5)",
         },
+        // Executive theme colors
+        "exec-blue": "var(--exec-blue)",
+        "tech-purple": "var(--tech-purple)",
+        "exec-dark": "var(--exec-dark)",
+        "exec-light": "var(--exec-light)",
         sidebar: {
           DEFAULT: "var(--sidebar-background)",
           foreground: "var(--sidebar-foreground)",

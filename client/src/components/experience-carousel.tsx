@@ -1,41 +1,53 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, TrendingUp, Rocket } from "lucide-react";
-
-const successStories = [
-  {
-    id: 1,
-    company: "Ipsos Venezuela",
-    period: "2003 - 2006",
-    title: "Crecimiento de $0 a $3M en ingresos",
-    description:
-      "Lideré la estrategia completa de entrada al mercado y la construcción operativa para Venezuela. Establecí alianzas locales, formé un equipo de alto rendimiento e implementé procesos escalables que generaron un crecimiento sostenible en 3 años.",
-    startValue: "$USD 0",
-    endValue: "$USD 3M",
-    startLabel: "Ingresos iniciales",
-    endLabel: "Ingresos finales",
-    icon: TrendingUp,
-    image: "assets/Ipsos.webp",
-  },
-  {
-    id: 2,
-    company: "Virtual Impact",
-    period: "2020 - 2022",
-    title: "Multiplicación de valor por 9x",
-    description:
-      "Transformé una organización digital mediante pivotes estratégicos, integración tecnológica y expansión de mercado. Implementé toma de decisiones basada en datos y metodologías ágiles que multiplicaron el valor de la empresa por 9 en solo dos años.",
-    startValue: "1x",
-    endValue: "9x",
-    startLabel: "Valor inicial",
-    endLabel: "Valor final",
-    icon: Rocket,
-    image: "/assets/Virtual.webp",
-  },
-];
+import { 
+  ChevronLeft, 
+  ChevronRight, 
+  TrendingUp, 
+  Rocket, 
+  Building2, 
+  Crown 
+} from "lucide-react";
 
 export default function ExperienceCarousel() {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const successStories = [
+    {
+      id: 1,
+      key: "ipsos",
+      icon: TrendingUp,
+      image: "/assets/Ipsos.webp",
+    },
+    {
+      id: 2,
+      key: "virtual",
+      icon: Rocket,
+      image: "/assets/Virtual.webp",
+    },
+    {
+      id: 3,
+      key: "corporate",
+      icon: Building2,
+      image: "/assets/Corporativos.jpg",
+    },
+    {
+      id: 4,
+      key: "leadership",
+      icon: Crown,
+      image: "/assets/PerfilEjecutivo.jpg",
+    },
+    {
+      id: 5,
+      key: "conexcol",
+      icon: TrendingUp,
+      image: "/assets/FlujoCajaConexcol.png"
+    }
+  ];
+  
   const totalSlides = successStories.length;
 
   const nextSlide = () => {
@@ -60,18 +72,15 @@ export default function ExperienceCarousel() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-exec-dark mb-6">
-            Experiencia Comprobada
+            {t("experience.title")}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Resultados excepcionales en distintas industrias gracias a liderazgo estratégico y excelencia operativa.
-          </p>
         </div>
 
         {/* Carrusel */}
         <div className="relative max-w-5xl mx-auto">
           <div className="overflow-hidden rounded-2xl shadow-2xl">
             <div
-              className="flex transition-transform duration-500 ease-in-out"
+              className="flex transition-transform duration-1000 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {successStories.map((story) => (
@@ -82,44 +91,38 @@ export default function ExperienceCarousel() {
                         <div className="space-y-6">
                           <div className="flex items-center space-x-3">
                             <div className="w-12 h-12 bg-gradient-to-r from-exec-blue to-tech-purple rounded-full flex items-center justify-center">
-                              <story.icon className="text-white text-xl" />
+                              <story.icon className="text-white w-6 h-6" />
                             </div>
-                            <h3 className="text-2xl font-bold text-exec-dark">
-                              {story.company}
-                            </h3>
+                            <h3 className="text-2xl font-bold text-exec-dark">{t(`experience.stories.${story.key}.company`)}</h3>
                           </div>
                           <div className="text-sm text-exec-blue font-semibold">
-                            {story.period}
+                            {t(`experience.stories.${story.key}.period`)}
                           </div>
                           <h4 className="text-3xl font-bold text-exec-dark">
-                            {story.title}
+                            {t(`experience.stories.${story.key}.title`)}
                           </h4>
                           <p className="text-gray-600 leading-relaxed">
-                            {story.description}
+                            {t(`experience.stories.${story.key}.description`)}
                           </p>
                           <div className="grid grid-cols-2 gap-4">
                             <div className="text-center p-4 bg-exec-light rounded-lg">
                               <div className="text-2xl font-bold text-exec-blue">
-                                {story.startValue}
+                                {t(`experience.stories.${story.key}.startValue`)}
                               </div>
-                              <div className="text-sm text-gray-600">
-                                {story.startLabel}
-                              </div>
+                              <div className="text-sm text-gray-600">{t(`experience.stories.${story.key}.startLabel`)}</div>
                             </div>
                             <div className="text-center p-4 bg-exec-light rounded-lg">
                               <div className="text-2xl font-bold text-tech-purple">
-                                {story.endValue}
+                                {t(`experience.stories.${story.key}.endValue`)}
                               </div>
-                              <div className="text-sm text-gray-600">
-                                {story.endLabel}
-                              </div>
+                              <div className="text-sm text-gray-600">{t(`experience.stories.${story.key}.endLabel`)}</div>
                             </div>
                           </div>
                         </div>
                         <div className="flex items-center justify-center">
                           <img
                             src={story.image}
-                            alt={`Caso de éxito - ${story.company}`}
+                            alt={t("experience.title") + " - " + t(`experience.stories.${story.key}.company`)}
                             className="rounded-xl shadow-lg w-full h-auto"
                           />
                         </div>
@@ -151,9 +154,9 @@ export default function ExperienceCarousel() {
 
           {/* Puntos indicadores */}
           <div className="flex justify-center mt-8 space-x-3">
-            {successStories.map((_, index) => (
+            {successStories.map((story, index) => (
               <button
-                key={index}
+                key={story.id}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-200 ${
                   index === currentSlide

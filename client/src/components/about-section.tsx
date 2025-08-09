@@ -1,32 +1,61 @@
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Trophy, Globe, Users, Download } from "lucide-react";
 
-const highlights = [
-  {
-    icon: Trophy,
-    title: "Resultados Comprobados",
-    description:
-      "He escalado compañías en América Latina, multiplicando ingresos y liderando expansiones internacionales en tiempo récord.",
-  },
-  {
-    icon: Globe,
-    title: "Visión Global de Negocios",
-    description:
-      "Experiencia como Country Manager en Colombia, México y Venezuela. Participante de programas internacionales de innovación y venture capital.",
-  },
-  {
-    icon: Users,
-    title: "Liderazgo Estratégico",
-    description:
-      "CEO Fraccional y consultor senior con experiencia en transformación digital, formación de equipos y aceleración de crecimiento.",
-  },
-];
-
 export default function AboutSection() {
-  const handleDownloadCV = () => {
+  const { t } = useTranslation();
+  
+  const highlights = [
+    {
+      icon: Trophy,
+      title: t("about.highlights.results.title"),
+      description: t("about.highlights.results.description"),
+    },
+    {
+      icon: Globe,
+      title: t("about.highlights.global.title"),
+      description: t("about.highlights.global.description"),
+    },
+    {
+      icon: Users,
+      title: t("about.highlights.leadership.title"),
+      description: t("about.highlights.leadership.description"),
+    },
+  ];
+  const handleDownloadCV = async () => {
+    try {
+      // Intentar primero con la API (servidor Express)
+      const response = await fetch("/api/download-cv");
+      
+      if (response.ok) {
+        // Si la API funciona, descargar el archivo
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "MAURICIO_URIBE_CV.docx";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      } else {
+        // Si la API no está disponible, intentar descarga directa
+        console.log("API not available, trying direct download");
+        downloadDirectly();
+      }
+    } catch (error) {
+      // Si hay error con la API, intentar descarga directa
+      console.log("API failed, trying direct download:", error);
+      downloadDirectly();
+    }
+  };
+
+  const downloadDirectly = () => {
+    // Descarga directa del archivo estático
     const link = document.createElement("a");
-    link.href = "/api/download-cv";
-    link.download = "Mauricio_Uribe_CV.pdf";
+    link.href = "/MAURICIO_URIBE_CV.docx";
+    link.download = "MAURICIO_URIBE_CV.docx";
+    link.target = "_blank"; // Abrir en nueva pestaña como fallback
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -39,10 +68,10 @@ export default function AboutSection() {
           <div className="space-y-8">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-exec-dark mb-6">
-                Sobre Mí
+                {t("about.title")}
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Soy Mauricio Uribe, ejecutivo C-Level con más de 20 años de experiencia liderando crecimiento empresarial, transformación digital y expansión internacional en América Latina. He construido operaciones desde cero, escalado startups y liderado equipos multinacionales. Hoy apoyo a organizaciones como CEO Fraccional y Consultor Senior para acelerar su crecimiento y profesionalizar su estructura. MBA, Especialista en Finanzas, y miembro activo de juntas directivas con visión global de negocios.
+                {t("about.description")}
               </p>
             </div>
 
@@ -69,14 +98,14 @@ export default function AboutSection() {
                 className="bg-gradient-to-r from-exec-blue to-tech-purple text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold text-lg px-8 py-4 h-auto"
               >
                 <Download className="mr-3 h-5 w-5" />
-                Descargar CV
+                {t("about.downloadCV")}
               </Button>
             </div>
           </div>
 
           <div className="lg:text-right">
             <img
-              src="/assets/Mauricio_Uribe.webp"
+              src="/assets/MUV.jpg"
               alt="Retrato ejecutivo de Mauricio Uribe"
               className="rounded-2xl shadow-2xl w-full max-w-md mx-auto lg:ml-auto"
             />

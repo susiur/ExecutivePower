@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,58 +49,91 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // CV download endpoint
   app.get("/api/download-cv", (req, res) => {
     try {
-      // In a real application, you would serve an actual PDF file
-      // For now, we'll create a simple text response that triggers download
-      const cvContent = `
-EXECUTIVE LEADERSHIP - CURRICULUM VITAE
-
-Contact Information:
-Email: executive@leadership.com
-Phone: +1 (555) 123-4567
-LinkedIn: linkedin.com/in/executive-leader
-
-Professional Summary:
-Seasoned C-Level executive with over 20 years of transformational leadership 
-experience across emerging markets and digital transformation initiatives.
-
-Key Achievements:
-
-IPSOS VENEZUELA (2003-2006)
-- Led complete market entry strategy and operational build-out
-- Grew revenue from $0 to $3M over 3 years
-- Established local partnerships and built high-performing team
-
-VIRTUAL IMPACT (2020-2022)
-- Transformed digital-first organization through strategic pivots
-- Achieved 9x growth through technology integration and market expansion
-- Implemented data-driven decision making and agile methodologies
-
-Core Competencies:
-- Strategic Planning & Execution
-- Market Entry & Expansion
-- Team Leadership & Development
-- Operational Transformation
-- Digital Transformation
-- Performance Optimization
-
-Education:
-- Advanced degrees in Business Administration and Strategic Management
-- Executive leadership certifications from top business schools
-
-Languages:
-- English (Native)
-- Spanish (Fluent)
-- Portuguese (Conversational)
-      `.trim();
-
-      res.setHeader('Content-Type', 'application/octet-stream');
-      res.setHeader('Content-Disposition', 'attachment; filename="Executive_CV.txt"');
-      res.send(cvContent);
+      // Multiple possible paths for the CV file
+      const possiblePaths = [
+        // Production paths (cPanel) - most likely locations
+        path.resolve(process.cwd(), "MAURICIO_URIBE_CV.docx"), // Root of working directory
+        path.resolve("./MAURICIO_URIBE_CV.docx"), // Current directory
+        path.resolve(__dirname, "MAURICIO_URIBE_CV.docx"), // Same directory as server
+        path.resolve(__dirname, "..", "MAURICIO_URIBE_CV.docx"), // Parent directory
+        // In case it's in public folder
+        path.resolve(__dirname, "public", "MAURICIO_URIBE_CV.docx"),
+        path.resolve(process.cwd(), "public", "MAURICIO_URIBE_CV.docx"),
+        // Development paths
+        path.resolve(__dirname, "..", "client", "public", "MAURICIO_URIBE_CV.docx"),
+        // Additional locations
+        path.resolve(__dirname, "..", "..", "MAURICIO_URIBE_CV.docx")
+      ];
+      
+      let cvPath: string | null = null;
+      
+      // Log current working directory and __dirname for debugging
+      console.log("Current working directory:", process.cwd());
+      console.log("__dirname:", __dirname);
+      console.log("Searching for CV file...");
+      
+      // Find the first existing file
+      for (const possiblePath of possiblePaths) {
+        console.log("Checking path:", possiblePath);
+        if (fs.existsSync(possiblePath)) {
+          cvPath = possiblePath;
+          console.log("✅ CV file found at:", cvPath);
+          break;
+        } else {
+          console.log("❌ Not found at:", possiblePath);
+        }
+      }
+      
+      // If no file found, log all attempted paths and return error
+      if (!cvPath) {
+        console.error("❌ CV file not found in any location!");
+        console.error("Attempted paths:");
+        possiblePaths.forEach((p, index) => console.error(`${index + 1}. ${p}`));
+        
+        // List actual files in current directory for debugging
+        try {
+          const files = fs.readdirSync(process.cwd());
+          console.log("Files in current working directory:", files);
+        } catch (e) {
+          console.log("Could not read current directory:", e);
+        }
+        
+        return res.status(404).json({ 
+          message: "CV file not found",
+          searchedPaths: possiblePaths,
+          currentDir: process.cwd()
+        });
+      }
+      
+      // Get file stats for logging
+      const stats = fs.statSync(cvPath);
+      console.log(`File size: ${stats.size} bytes`);
+      
+      // Set headers for file download
+      res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+      res.setHeader('Content-Disposition', 'attachment; filename="MAURICIO_URIBE_CV.docx"');
+      res.setHeader('Content-Length', stats.size.toString());
+      
+      // Send the file
+      res.sendFile(cvPath, (err) => {
+        if (err) {
+          console.error("Error sending file:", err);
+          if (!res.headersSent) {
+            res.status(500).json({ message: "Error sending file" });
+          }
+        } else {
+          console.log("✅ File sent successfully:", cvPath);
+        }
+      });
+      
     } catch (error) {
       console.error("CV download error:", error);   
-      res.status(500).json({ 
-        message: "Failed to download CV" 
-      });
+      if (!res.headersSent) {
+        res.status(500).json({ 
+          message: "Failed to download CV",
+          error: error instanceof Error ? error.message : String(error)
+        });
+      }
     }
   });
 

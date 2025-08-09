@@ -1,0 +1,164 @@
+{
+  "nav": {
+    "home": "Home",
+    "experience": "Experience",
+    "about": "About Me", 
+    "rates": "Rates",
+    "contact": "Contact",
+    "title": "Executive Leadership"
+  },
+  "hero": {
+    "title": "Escalar es Solo el Comienzo. Acelerar con Inteligencia es el Verdadero Desafío.",
+    "subtitle": "Ofrecemos dirección ejecutiva fraccional como Chief Growth Officer (CGO) para empresas que buscan crecer con estrategia, velocidad y control—sin asumir el costo de un C-Level full-time.",
+    "cta1": "Ver Historias de Éxito",
+    "cta2": "Empieza tu transformación"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Soy Mauricio Uribe, ejecutivo C-Level con más de 20 años de experiencia liderando crecimiento empresarial, transformación digital y expansión internacional en América Latina. He construido operaciones desde cero, escalado startups y liderado equipos multinacionales. Hoy apoyo a organizaciones como CEO Fraccional y Consultor Senior para acelerar su crecimiento y profesionalizar su estructura. MBA, Especialista en Finanzas, y miembro activo de juntas directivas con visión global de negocios.",
+    "highlights": {
+      "results": {
+        "title": "Resultados Comprobados",
+        "description": "He escalado compañías en América Latina, multiplicando ingresos y liderando expansiones internacionales en tiempo récord."
+      },
+      "global": {
+        "title": "Visión Global de Negocios",
+        "description": "Experiencia como Country Manager en Colombia, México y Venezuela. Participante de programas internacionales de innovación y venture capital."
+      },
+      "leadership": {
+        "title": "Liderazgo Estratégico",
+        "description": "CEO Fraccional y consultor senior con experiencia en transformación digital, formación de equipos y aceleración de crecimiento."
+      }
+    },
+    "downloadCV": "Descargar CV"
+  },
+  "experience": {
+    "title": "Experiencia Comprobada en Crecimiento",
+    "stories": {
+      "ipsos": {
+        "company": "Ipsos Venezuela",
+        "period": "2003 - 2006",
+        "title": "Crecimiento de $0 a $3M en ingresos",
+        "description": "Lideré la estrategia completa de entrada al mercado y la construcción operativa para Venezuela. Establecí alianzas locales, formé un equipo de alto rendimiento e implementé procesos escalables que generaron un crecimiento sostenible en 3 años.",
+        "startValue": "$USD 0",
+        "endValue": "$USD 3M",
+        "startLabel": "Ingresos iniciales",
+        "endLabel": "Ingresos finales"
+      },
+      "virtual": {
+        "company": "Virtual Impact",
+        "period": "2020 - 2022",
+        "title": "Multiplicación de valor por 9x",
+        "description": "Transformé una organización digital mediante pivotes estratégicos, integración tecnológica y expansión de mercado. Implementé toma de decisiones basada en datos y metodologías ágiles que multiplicaron el valor de la empresa por 9 en solo dos años.",
+        "startValue": "1x",
+        "endValue": "9x",
+        "startLabel": "Valor inicial",
+        "endLabel": "Valor final"
+      },
+      "corporate": {
+        "company": "Clientes Corporativos",
+        "period": "",
+        "title": "¿Listo para jugar en grandes ligas?",
+        "description": "Experiencia comprobada liderando proyectos con clientes Fortune 500 y grandes corporativos. Conectamos estrategia y ejecución para generar impacto real en organizaciones de clase mundial.",
+        "startValue": "100+",
+        "endValue": "15+",
+        "startLabel": "Proyectos liderados",
+        "endLabel": "Clientes Fortune 500"
+      },
+      "leadership": {
+        "company": "Alta Dirección Regional",
+        "period": "",
+        "title": "Visión, Ejecución y Resultados en 7 industrias",
+        "description": "Miembro de Juntas Directivas, con 3 posgrados en Alta Gerencia y experiencia como Country Manager en Colombia, México y Venezuela. He generado crecimiento real en 7 sectores distintos, integrando visión, ejecución y resultados.",
+        "startValue": "3",
+        "endValue": "7",
+        "startLabel": "Países liderados",
+        "endLabel": "Industrias con impacto"
+      },
+      "conexcol": {
+        "company": "Conexcol",
+        "period": "2022 - 2024",
+        "title": "Transformación Financiera",
+        "description": "En solo 24 meses, revertimos un flujo de caja negativo de -80M COP a uno positivo cercano a +90M COP en Conexcol, mediante estrategia, control operativo y decisiones de alto impacto. No solo generamos ingresos. Convertimos estructuras en máquinas de flujo positivo.",
+        "startValue": "-80M COP",
+        "endValue": "+90M COP",
+        "startLabel": "Flujo de caja inicial",
+        "endLabel": "Flujo de caja final"
+      }
+    }
+  },
+  "rates": {
+    "title": "Inversión en Liderazgo",
+    "subtitle": "Estructura de servicios flexible y orientada a resultados, adaptada al tamaño y etapa de tu organización.",
+    "popular": "Más Popular",
+    "services": {
+      "consultoria": {
+        "name": "Consultoría Estratégica",
+        "description": "Ingreso a mercados, expansión y crecimiento sostenido",
+        "price": "$200–250/hora",
+        "period": "Empresas medianas",
+        "features": [
+          "Análisis de mercado y planeación",
+          "Posicionamiento competitivo",
+          "Ruta de crecimiento y expansión"
+        ],
+        "buttonText": "Solicitar Sesión"
+      },
+      "ceo": {
+        "name": "CEO Fraccional",
+        "description": "Liderazgo ejecutivo a nivel C sin el costo fijo",
+        "price": "$3,000–12,000/mes",
+        "period": "Retainers mensuales",
+        "features": [
+          "Autoridad C-Level completa",
+          "Liderazgo de equipos y procesos",
+          "Transformación operativa",
+          "Optimización de resultados"
+        ],
+        "buttonText": "Agendar Llamada"
+      },
+      "board": {
+        "name": "Asesor de Junta Directiva",
+        "description": "Acompañamiento estratégico y gobernanza corporativa",
+        "price": "$5,000/mes",
+        "period": "Empresas en expansión",
+        "features": [
+          "Reuniones periódicas de junta",
+          "Supervisión estratégica",
+          "Mentoría a directivos"
+        ],
+        "buttonText": "Más Información"
+      }
+    }
+  },
+  "contact": {
+    "title": "¿Listo para transformar tu empresa?",
+    "subtitle": "Hablemos sobre cómo un liderazgo ejecutivo puede acelerar el crecimiento de tu organización.",
+    "contactData": "Datos de contacto",
+    "whatsappButton": "Contactar por WhatsApp",
+    "whatsappMessage": "Hola%20Mauricio,%20estoy%20interesado%20en%20recibir%20acompañamiento%20ejecutivo",
+    "info": {
+      "email": {
+        "title": "mauriciouribe@outlook.com",
+        "subtitle": "Respuesta en menos de 24 horas"
+      },
+      "phone": {
+        "title": "+57 300 731-2050",
+        "subtitle": "Disponible de lunes a viernes"
+      },
+      "linkedin": {
+        "title": "linkedin.com/in/uribemauricio",
+        "subtitle": "Red profesional"
+      }
+    }
+  },
+  "footer": {
+    "title": "Executive Leadership",
+    "tagline": "Transformando Visión en Resultados Extraordinarios",
+    "rights": "© 2024 Executive Leadership Services. Todos los derechos reservados."
+  },
+  "language": {
+    "spanish": "Español",
+    "english": "English"
+  }
+}

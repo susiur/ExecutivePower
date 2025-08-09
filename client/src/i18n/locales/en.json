@@ -1,0 +1,164 @@
+{
+  "nav": {
+    "home": "Home",
+    "experience": "Experience", 
+    "about": "About Me",
+    "rates": "Rates",
+    "contact": "Contact",
+    "title": "Executive Leadership"
+  },
+  "hero": {
+    "title": "Scaling is Just the Beginning. Accelerating with Intelligence is the Real Challenge.",
+    "subtitle": "We offer fractional executive leadership as Chief Growth Officer (CGO) for companies looking to grow with strategy, speed and control—without assuming the cost of a full-time C-Level.",
+    "cta1": "See Success Stories",
+    "cta2": "Start your transformation"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I am Mauricio Uribe, a C-Level executive with over 20 years of experience leading business growth, digital transformation and international expansion in Latin America. I have built operations from scratch, scaled startups and led multinational teams. Today I support organizations as Fractional CEO and Senior Consultant to accelerate their growth and professionalize their structure. MBA, Finance Specialist, and active member of boards of directors with global business vision.",
+    "highlights": {
+      "results": {
+        "title": "Proven Results",
+        "description": "I have scaled companies in Latin America, multiplying revenues and leading international expansions in record time."
+      },
+      "global": {
+        "title": "Global Business Vision",
+        "description": "Experience as Country Manager in Colombia, Mexico and Venezuela. Participant in international innovation and venture capital programs."
+      },
+      "leadership": {
+        "title": "Strategic Leadership",
+        "description": "Fractional CEO and senior consultant with experience in digital transformation, team building and growth acceleration."
+      }
+    },
+    "downloadCV": "Download CV"
+  },
+  "experience": {
+    "title": "Proven Growth Experience",
+    "stories": {
+      "ipsos": {
+        "company": "Ipsos Venezuela",
+        "period": "2003 - 2006",
+        "title": "Growth from $0 to $3M in revenue",
+        "description": "I led the complete market entry strategy and operational construction for Venezuela. I established local alliances, formed a high-performance team and implemented scalable processes that generated sustainable growth in 3 years.",
+        "startValue": "$USD 0",
+        "endValue": "$USD 3M",
+        "startLabel": "Initial revenue",
+        "endLabel": "Final revenue"
+      },
+      "virtual": {
+        "company": "Virtual Impact",
+        "period": "2020 - 2022",
+        "title": "9x value multiplication",
+        "description": "I transformed a digital organization through strategic pivots, technological integration and market expansion. I implemented data-driven decision making and agile methodologies that multiplied the company's value by 9 in just two years.",
+        "startValue": "1x",
+        "endValue": "9x",
+        "startLabel": "Initial value",
+        "endLabel": "Final value"
+      },
+      "corporate": {
+        "company": "Corporate Clients",
+        "period": "",
+        "title": "Ready to play in the big leagues?",
+        "description": "Proven experience leading projects with Fortune 500 clients and large corporations. We connect strategy and execution to generate real impact in world-class organizations.",
+        "startValue": "100+",
+        "endValue": "15+",
+        "startLabel": "Projects led",
+        "endLabel": "Fortune 500 clients"
+      },
+      "leadership": {
+        "company": "Regional Senior Management",
+        "period": "",
+        "title": "Vision, Execution and Results across 7 industries",
+        "description": "Board member, with 3 postgraduate degrees in Senior Management and experience as Country Manager in Colombia, Mexico and Venezuela. I have generated real growth in 7 different sectors, integrating vision, execution and results.",
+        "startValue": "3",
+        "endValue": "7",
+        "startLabel": "Countries led",
+        "endLabel": "Industries impacted"
+      },
+      "conexcol": {
+        "company": "Conexcol",
+        "period": "2022 - 2024",
+        "title": "Financial Transformation",
+        "description": "In just 24 months, we reversed a negative cash flow of -80M COP to a positive cash flow of nearly +90M COP at Conexcol through strategy, operational control, and high-impact decisions. We didn't just generate revenue. We turned structures into positive cash flow machines.",
+        "startValue": "-80M COP",
+        "endValue": "+90M COP",
+        "startLabel": "Initial cash flow",
+        "endLabel": "Final cash flow"
+      }
+    }
+  },
+  "rates": {
+    "title": "Leadership Investment",
+    "subtitle": "Flexible, results-oriented service structure, adapted to the size and stage of your organization.",
+    "popular": "Most Popular",
+    "services": {
+      "consultoria": {
+        "name": "Strategic Consulting",
+        "description": "Market entry, expansion and sustained growth",
+        "price": "$200–250/hour",
+        "period": "Medium-sized companies",
+        "features": [
+          "Market analysis and planning",
+          "Competitive positioning",
+          "Growth and expansion roadmap"
+        ],
+        "buttonText": "Request Session"
+      },
+      "ceo": {
+        "name": "Fractional CEO",
+        "description": "C-Level executive leadership without the fixed cost",
+        "price": "$3,000–12,000/month",
+        "period": "Monthly retainers",
+        "features": [
+          "Full C-Level authority",
+          "Team and process leadership",
+          "Operational transformation",
+          "Results optimization"
+        ],
+        "buttonText": "Schedule Call"
+      },
+      "board": {
+        "name": "Board Advisor",
+        "description": "Strategic guidance and corporate governance",
+        "price": "$5,000/month",
+        "period": "Expanding companies",
+        "features": [
+          "Regular board meetings",
+          "Strategic oversight",
+          "Executive mentoring"
+        ],
+        "buttonText": "More Information"
+      }
+    }
+  },
+  "contact": {
+    "title": "Ready to transform your company?",
+    "subtitle": "Let's talk about how executive leadership can accelerate your organization's growth.",
+    "contactData": "Contact Information",
+    "whatsappButton": "Contact via WhatsApp",
+    "whatsappMessage": "Hello%20Mauricio,%20I%20am%20interested%20in%20receiving%20executive%20guidance",
+    "info": {
+      "email": {
+        "title": "mauriciouribe@outlook.com",
+        "subtitle": "Response within 24 hours"
+      },
+      "phone": {
+        "title": "+57 300 731-2050",
+        "subtitle": "Available Monday to Friday"
+      },
+      "linkedin": {
+        "title": "linkedin.com/in/uribemauricio",
+        "subtitle": "Professional network"
+      }
+    }
+  },
+  "footer": {
+    "title": "Executive Leadership",
+    "tagline": "Transforming Vision Into Extraordinary Results",
+    "rights": "© 2024 Executive Leadership Services. All rights reserved."
+  },
+  "language": {
+    "spanish": "Español",
+    "english": "English"
+  }
+}

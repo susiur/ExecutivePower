@@ -1,15 +1,20 @@
+import { useTranslation } from "react-i18next";
+
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="bg-black text-white py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center">
-          <div className="text-2xl font-bold mb-4">Executive Leadership</div>
+          <div className="text-2xl font-bold mb-4">{t("footer.title")}</div>
           <p className="text-gray-400 mb-6">
-            Transforming Vision Into Extraordinary Results
+            {t("footer.tagline")}
           </p>
           <div className="flex justify-center space-x-6">
             <a
-              href="#"
+              href="https://linkedin.com/in/uribemauricio"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors duration-200"
             >
               <svg
@@ -26,7 +31,9 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors duration-200"
             >
               <svg
@@ -41,7 +48,7 @@ export default function Footer() {
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800">
             <p className="text-gray-400 text-sm">
-              &copy; 2024 Executive Leadership Services. All rights reserved.
+              {t("footer.rights")}
             </p>
           </div>
         </div>

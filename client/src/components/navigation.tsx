@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import LanguageToggle from "@/components/language-toggle";
 
 export default function Navigation() {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,10 +28,10 @@ export default function Navigation() {
   };
 
   const navItems = [
-    { label: "Home", id: "home" },
-    { label: "Experience", id: "experience" },
-    { label: "About Me", id: "about" },
-    { label: "Rates", id: "rates" },
+    { label: t("nav.home"), id: "home" },
+    { label: t("nav.experience"), id: "experience" },
+    { label: t("nav.about"), id: "about" },
+    { label: t("nav.rates"), id: "rates" },
   ];
 
   return (
@@ -47,7 +50,7 @@ export default function Navigation() {
                 isScrolled ? "text-exec-dark" : "text-white"
               }`}
             >
-              Executive Leadership
+              {t("nav.title")}
             </h1>
           </div>
 
@@ -69,8 +72,9 @@ export default function Navigation() {
                 onClick={() => scrollToSection("contact")}
                 className="bg-exec-blue text-white hover:bg-blue-700"
               >
-                Contact
+                {t("nav.contact")}
               </Button>
+              <LanguageToggle className={isScrolled ? "text-exec-dark" : "text-white"} />
             </div>
           </div>
 
@@ -103,8 +107,11 @@ export default function Navigation() {
                     onClick={() => scrollToSection("contact")}
                     className="w-full bg-exec-blue text-white hover:bg-blue-700"
                   >
-                    Contact
+                    {t("nav.contact")}
                   </Button>
+                  <div className="pt-4">
+                    <LanguageToggle className="text-exec-dark" />
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
