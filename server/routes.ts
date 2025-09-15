@@ -49,20 +49,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // CV download endpoint
   app.get("/api/download-cv", (req, res) => {
     try {
+      const lang = req.query.lang as string || 'es';
+      const fileName = lang === 'en' ? 'MAURICIO_URIBE_CV_EN.docx' : 'MAURICIO_URIBE_CV_ES.docx';
+      
       // Multiple possible paths for the CV file
       const possiblePaths = [
         // Production paths (cPanel) - most likely locations
-        path.resolve(process.cwd(), "MAURICIO_URIBE_CV.docx"), // Root of working directory
-        path.resolve("./MAURICIO_URIBE_CV.docx"), // Current directory
-        path.resolve(__dirname, "MAURICIO_URIBE_CV.docx"), // Same directory as server
-        path.resolve(__dirname, "..", "MAURICIO_URIBE_CV.docx"), // Parent directory
+        path.resolve(process.cwd(), fileName), // Root of working directory
+        path.resolve("./", fileName), // Current directory
+        path.resolve(__dirname, fileName), // Same directory as server
+        path.resolve(__dirname, "..", fileName), // Parent directory
         // In case it's in public folder
-        path.resolve(__dirname, "public", "MAURICIO_URIBE_CV.docx"),
-        path.resolve(process.cwd(), "public", "MAURICIO_URIBE_CV.docx"),
+        path.resolve(__dirname, "public", fileName),
+        path.resolve(process.cwd(), "public", fileName),
         // Development paths
-        path.resolve(__dirname, "..", "client", "public", "MAURICIO_URIBE_CV.docx"),
+        path.resolve(__dirname, "..", "client", "public", fileName),
         // Additional locations
-        path.resolve(__dirname, "..", "..", "MAURICIO_URIBE_CV.docx")
+        path.resolve(__dirname, "..", "..", fileName)
       ];
       
       let cvPath: string | null = null;
@@ -70,7 +73,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Log current working directory and __dirname for debugging
       console.log("Current working directory:", process.cwd());
       console.log("__dirname:", __dirname);
-      console.log("Searching for CV file...");
+      console.log(`Searching for CV file: ${fileName} (language: ${lang})...`);
       
       // Find the first existing file
       for (const possiblePath of possiblePaths) {
@@ -84,7 +87,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
       }
       
-      // If no file found, log all attempted paths and return error
+      // If no file found, try fallback to original file
+      if (!cvPath) {
+        console.log("❌ Language-specific CV not found, trying fallback...");
+        const fallbackPaths = possiblePaths.map(p => p.replace(fileName, "MAURICIO_URIBE_CV.docx"));
+        
+        for (const possiblePath of fallbackPaths) {
+          console.log("Checking fallback path:", possiblePath);
+          if (fs.existsSync(possiblePath)) {
+            cvPath = possiblePath;
+            console.log("✅ Fallback CV file found at:", cvPath);
+            break;
+          }
+        }
+      }
+      
+      // If still no file found, log all attempted paths and return error
       if (!cvPath) {
         console.error("❌ CV file not found in any location!");
         console.error("Attempted paths:");
@@ -111,7 +129,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Set headers for file download
       res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-      res.setHeader('Content-Disposition', 'attachment; filename="MAURICIO_URIBE_CV.docx"');
+      res.setHeader('Content-Disposition', `attachment; filename="${fileName}"`);
       res.setHeader('Content-Length', stats.size.toString());
       
       // Send the file

@@ -30,7 +30,8 @@
         "description": "Fractional CEO and senior consultant with experience in digital transformation, team building and growth acceleration."
       }
     },
-    "downloadCV": "Download CV"
+    "downloadCV": "Download CV",
+    "cvFileName": "MAURICIO_URIBE_CV_EN.docx"
   },
   "experience": {
     "title": "Proven Growth Experience",
@@ -86,6 +87,12 @@
         "endLabel": "Final cash flow"
       }
     }
+  },
+  "impact": {
+    "title": "From Diagnosis to Action: We Make It Happen",
+    "subtitle": "We don't just tell you how to grow, we execute the plan with you.",
+    "quote": "Growth doesn't happen with a report. It happens when someone takes responsibility and executes.",
+    "cta": "Discover how we make it happen"
   },
   "rates": {
     "title": "Leadership Investment",

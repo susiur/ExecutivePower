@@ -30,7 +30,8 @@
         "description": "CEO Fraccional y consultor senior con experiencia en transformación digital, formación de equipos y aceleración de crecimiento."
       }
     },
-    "downloadCV": "Descargar CV"
+    "downloadCV": "Descargar CV",
+    "cvFileName": "MAURICIO_URIBE_CV_ES.docx"
   },
   "experience": {
     "title": "Experiencia Comprobada en Crecimiento",
@@ -86,6 +87,12 @@
         "endLabel": "Flujo de caja final"
       }
     }
+  },
+  "impact": {
+    "title": "Del Diagnóstico a la Acción: Nosotros lo Hacemos Realidad",
+    "subtitle": "No solo decimos cómo crecer, ejecutamos el plan contigo.",
+    "quote": "El crecimiento no ocurre con un reporte. Sucede cuando alguien toma responsabilidad y lo ejecuta.",
+    "cta": "Descubre cómo hacemos que pase"
   },
   "rates": {
     "title": "Inversión en Liderazgo",

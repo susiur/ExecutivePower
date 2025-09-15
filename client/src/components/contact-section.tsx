@@ -10,16 +10,22 @@ export default function ContactSection() {
       key: "email",
       icon: Mail,
       bgColor: "bg-exec-blue",
+      href: "mailto:mauriciouribe@outlook.com",
+      clickable: true,
     },
     {
       key: "phone",
       icon: Phone,
       bgColor: "bg-tech-purple",
+      href: "tel:+573007312050",
+      clickable: true,
     },
     {
       key: "linkedin",
       icon: Globe,
       bgColor: "bg-exec-blue",
+      href: "https://linkedin.com/in/uribemauricio",
+      clickable: true,
     },
   ];
 
@@ -42,21 +48,33 @@ export default function ContactSection() {
             <div>
               <h3 className="text-2xl font-bold mb-6">{t("contact.contactData")}</h3>
               <div className="space-y-4">
-                {contactInfo.map((info) => (
-                  <div key={info.key} className="flex items-center space-x-4">
-                    <div
-                      className={`w-12 h-12 ${info.bgColor} rounded-full flex items-center justify-center`}
-                    >
-                      <info.icon className="text-white h-5 w-5" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">{t(`contact.info.${info.key}.title`)}</div>
-                      <div className="text-gray-300 text-sm">
-                        {t(`contact.info.${info.key}.subtitle`)}
+                {contactInfo.map((info) => {
+                  const ContactElement = info.clickable ? 'a' : 'div';
+                  const linkProps = info.clickable 
+                    ? { 
+                        href: info.href, 
+                        target: info.key === 'linkedin' ? '_blank' : undefined,
+                        rel: info.key === 'linkedin' ? 'noopener noreferrer' : undefined,
+                        className: "flex items-center space-x-4 hover:bg-white/5 rounded-lg p-3 transition-colors cursor-pointer"
+                      }
+                    : { className: "flex items-center space-x-4 p-3" };
+
+                  return (
+                    <ContactElement key={info.key} {...linkProps}>
+                      <div
+                        className={`w-12 h-12 ${info.bgColor} rounded-full flex items-center justify-center`}
+                      >
+                        <info.icon className="text-white h-5 w-5" />
                       </div>
-                    </div>
-                  </div>
-                ))}
+                      <div>
+                        <div className="font-semibold">{t(`contact.info.${info.key}.title`)}</div>
+                        <div className="text-gray-300 text-sm">
+                          {t(`contact.info.${info.key}.subtitle`)}
+                        </div>
+                      </div>
+                    </ContactElement>
+                  );
+                })}
               </div>
             </div>
           </div>

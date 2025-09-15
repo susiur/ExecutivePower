@@ -23,9 +23,12 @@ export default function AboutSection() {
     },
   ];
   const handleDownloadCV = async () => {
+    const fileName = t("about.cvFileName");
+    
     try {
-      // Intentar primero con la API (servidor Express)
-      const response = await fetch("/api/download-cv");
+      // Intentar primero con la API (servidor Express) - pasando el idioma
+      const currentLang = t("language.spanish") === "Español" ? "es" : "en";
+      const response = await fetch(`/api/download-cv?lang=${currentLang}`);
       
       if (response.ok) {
         // Si la API funciona, descargar el archivo
@@ -33,7 +36,7 @@ export default function AboutSection() {
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
-        link.download = "MAURICIO_URIBE_CV.docx";
+        link.download = fileName;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -51,10 +54,11 @@ export default function AboutSection() {
   };
 
   const downloadDirectly = () => {
+    const fileName = t("about.cvFileName");
     // Descarga directa del archivo estático
     const link = document.createElement("a");
-    link.href = "/MAURICIO_URIBE_CV.docx";
-    link.download = "MAURICIO_URIBE_CV.docx";
+    link.href = `/${fileName}`;
+    link.download = fileName;
     link.target = "_blank"; // Abrir en nueva pestaña como fallback
     document.body.appendChild(link);
     link.click();
